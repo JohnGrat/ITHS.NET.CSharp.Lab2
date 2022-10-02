@@ -16,7 +16,7 @@ namespace Geometry
         private Vector3 _center;
         private Vector2 _size;
 
-        public override float Circumference => 2 * (_center.Length() + _size.Length());
+        public override float Circumference => 2 * (_size.X + _size.Y);
 
         public override float Area => _size.Y * _size.X;
 
