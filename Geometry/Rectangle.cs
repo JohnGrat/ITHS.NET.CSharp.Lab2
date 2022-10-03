@@ -24,7 +24,7 @@ namespace Geometry
 
         public override string ToString()
         {
-            return IsSquare() ? "Square" : "Rectangle" +  $" {_center.X}, {_center.Y}): w = {_size.X}, h = {_size.Y}";
+            return $"{(IsSquare() ? "Cube" : "Cuboid")} {_center.X}, {_center.Y}): w = {_size.X}, h = {_size.Y}";
         }
 
         public bool IsSquare() => _size.X == _size.Y;
@@ -40,13 +40,5 @@ namespace Geometry
             _center = new Vector3(center, 0);
             _size = new Vector2(width, width);
         }
-
-        //Rectangle(Shape2D)
-        //Denna klass ska ha en konstruktor som tar parametrar: Vector2 center, Vector2
-        //size(dvs.höjd/bredd), samt en alternativ konstruktor: Vector2 center, float width
-        //(som sätter både höjd och bredd till samma värde).
-        //Den ska även implementera en property IsSquare som returnerar true om höjd
-        //och bredd är lika(annars false).
-        //ToString() => “rectangle @(3.0, 4.0): w = 4.0, h = 5.0” (square om w == h). 
     }
 }
