@@ -24,7 +24,7 @@ namespace Geometry
 
         public override string ToString()
         {
-            return IsSquare() ? "rectangle" : "square" + $" {_center.X}, {_center.Y}): w = {_size.X}, h = {_size.Y}";
+            return IsSquare() ? "Square" : "Rectangle" +  $" {_center.X}, {_center.Y}): w = {_size.X}, h = {_size.Y}";
         }
 
         public bool IsSquare() => _size.X == _size.Y;
