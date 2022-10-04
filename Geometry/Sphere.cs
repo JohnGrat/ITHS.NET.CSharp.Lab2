@@ -17,7 +17,7 @@ namespace Geometry
         public override float Area => MathF.PI * (MathF.Pow(_radius, 2));
         public override float Volume => _radius * _radius * _radius;
 
-        public override string ToString() => $"sphere @({_center.X}, {_center.Y}, {_center.Z}): r = {_radius}";
+        public override string ToString() => $"Sphere @({_center.X:f2}, {_center.Y:f2}, {_center.Z:f2}): r = {_radius:f2}";
 
 
         public Sphere(Vector3 center, float radius)
