@@ -13,11 +13,9 @@ namespace Geometry.Shapes
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
 
-        public static BaseShape GenerateShape() => Randomize(GenerateRandomVector3());
+        public static BaseShape GenerateShape() => GenerateShape(GenerateRandomVector3());
 
-        public static BaseShape GenerateShape(Vector3 center3D) => Randomize(center3D);
-
-        private static BaseShape Randomize(Vector3 center3D)
+        public static BaseShape GenerateShape(Vector3 center3D)
         {
             Vector2 center2D = new Vector2(center3D.X, center3D.Y);
 
