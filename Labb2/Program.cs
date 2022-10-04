@@ -5,31 +5,27 @@ using Geometry.Shapes;
 using System.Numerics;
 
 
-
-//Vector2 vector = new(5 , 5);
-
-//Console.WriteLine((new Circle(vector, 2).Circumference));
-//Console.WriteLine((new Rectangle(new Vector2(4 , 4), 2 )).ToString());
-
-
-//Console.WriteLine(Vector2.Distance(new Vector2(8, 8) , new Vector2(12, 12)));
-//Console.WriteLine(MathF.Sqrt(MathF.Pow(12 - 8, 2) + MathF.Pow(8 - 12, 2)));
-
-//Console.WriteLine((new Triangle(new Vector2(2, 6), new Vector2(6, 5), new Vector2(12, 6)).Area));
-
-//Console.WriteLine(BaseShape.GenerateShape().ToString());
-
 BaseShape[] shapes = new BaseShape[20];
 
 shapes = shapes.Select(x => x = BaseShape.GenerateShape()).ToArray();
 
-var avgArea = 0;
-var avgCrc = 0;
-string avgShape = "";
-var shapeBiggestArea = shapes.GroupBy(x => x.ToString().Split().First()).OrderByDescending(x => x.Count()).First().FirstOrDefault();
+Shape3D[] shape3D = shapes.Where(x => x.GetType().BaseType == typeof(Shape3D)).Cast<Shape3D>().ToArray();
+float maxVolume = shape3D.MaxBy(x => x.Volume).Volume;
+float triangleCrc = shapes.Where(x => x.GetType() == typeof(Triangle)).Cast<Triangle>().Select(x => x.Circumference).ToArray().Sum();
+float avgArea = shapes.Select(x => x.Area).Average();
+IGrouping<string, BaseShape> avgShape = shapes.GroupBy(x => x.GetType().Name).OrderByDescending(x => x.Count()).First();
 
 
+Console.ForegroundColor = ConsoleColor.White;
 foreach (var shape in shapes)
 {
     Console.WriteLine(shape.ToString());
 }
+Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"Average Area:{avgArea:f2}");
+Console.WriteLine($"Total Triangle Circumference:{triangleCrc:f2}");
+Console.WriteLine($"3D Shape with largest volume:{maxVolume:f2}");
+Console.WriteLine($"There most common shape is {avgShape.Key} and there are {avgShape.Count()} ");
+Console.ReadKey(true);
+

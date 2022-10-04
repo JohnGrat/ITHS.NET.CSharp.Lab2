@@ -24,8 +24,8 @@ namespace Geometry
         public override string ToString() => $"Triangle @({_x:f2}, {_y:f2}): p1({_p1.X:f2}, {_p1.Y:f2}), p2({_p2.X:f2}, {_p2.Y:f2}), p3({_p3.X:f2}. {_p3.Y:f2})";
      
         public override Vector3 Center => new Vector3(_x, _y, 0);
-    
-        public Triangle(Vector2 p1, Vector2 p2, Vector2 p3 )
+
+        public Triangle(Vector2 p1, Vector2 p2, Vector2 p3)
         {
 
             _p1 = p1;
@@ -37,14 +37,8 @@ namespace Geometry
 
         }
 
-        public Triangle(Vector3 center, Vector2 p2, Vector2 p3)
+        public Triangle(Vector3 center, Vector2 p2, Vector2 p3) : this(new Vector2((center.X * 3) - p2.X - p3.X, (center.Y * 3) - p2.Y - p3.Y), p2, p3)
         {
-            _p1 = new Vector2((center.X * 3) - p2.X - p3.X, (center.Y * 3) - p2.Y - p3.Y);
-            _p2 = p2;
-            _p3 = p3;
-
-            _x = center.X;
-            _y = center.Y;
         }
 
     }
