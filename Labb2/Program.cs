@@ -2,8 +2,21 @@
 
 using Geometry;
 using Geometry.Shapes;
+using System.Drawing;
 using System.Numerics;
+using Rectangle = Geometry.Rectangle;
 
+Console.WriteLine((new Circle(new Vector2(3f, 2f), 5)).Circumference);
+Console.WriteLine((new Circle(new Vector2(3f, 2f), 5)).Area);
+
+Console.WriteLine((new Cuboid(new Vector3 (4 , 5 ,6 ), new Vector3(4, 5, 6)).Area));
+Console.WriteLine((new Cuboid(new Vector3 (4, 5, 6), new Vector3(4, 5, 6)).Volume));
+Console.WriteLine((new Cuboid(new Vector3 (4, 5, 6), new Vector3(4, 5, 6)).Center));
+
+
+
+Console.WriteLine((new Rectangle(new Vector2(3f, 2f), new Vector2(3f, 2f))).Area);
+Console.WriteLine((new Rectangle(new Vector2(3f, 2f), new Vector2(3f, 2f))).Circumference);
 
 BaseShape[] shapes = new BaseShape[20];
 
