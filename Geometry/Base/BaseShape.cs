@@ -17,7 +17,8 @@ namespace Geometry.Shapes
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
 
-        private static int RandomRange = 20;
+        private static int RandomRange = 21;
+
 
         public static BaseShape GenerateShape() => GenerateShape(GenerateRandomVector3());
 
@@ -30,12 +31,12 @@ namespace Geometry.Shapes
 
             return i switch
             {
-                0 => new Circle(center2D, random.Next(RandomRange)),
-                1 => new Cuboid(center3D, random.Next(RandomRange)), //Cube
+                0 => new Circle(center2D, random.Next(1, RandomRange)),
+                1 => new Cuboid(center3D, random.Next(1, RandomRange)), //Cube
                 2 => new Cuboid(center3D, GenerateRandomVector3()),
                 3 => new Rectangle(center2D, GenerateRandomVector2()),
-                4 => new Rectangle(center2D, random.Next(RandomRange)), //Square
-                5 => new Sphere(center3D, random.Next(RandomRange)),
+                4 => new Rectangle(center2D, random.Next(1, RandomRange)), //Square
+                5 => new Sphere(center3D, random.Next(1, RandomRange)),
                 6 => new Triangle(center3D, GenerateRandomVector2(), GenerateRandomVector2()),
             };
         }

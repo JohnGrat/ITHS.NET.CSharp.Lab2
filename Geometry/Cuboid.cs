@@ -38,7 +38,7 @@ namespace Geometry
         public Cuboid(Vector3 center, float width)
         {
             _center = center;
-            _center = new Vector3(width, width, width);
+            _size = new Vector3(width, width, width);
             _shape = ShapeType.Cube;
         }       
 
