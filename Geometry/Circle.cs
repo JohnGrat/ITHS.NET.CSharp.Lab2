@@ -6,7 +6,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Geometry.Shapes;
-using static Geometry.Types.Type;
+using Geometry.Types;
+
 
 namespace Geometry
 {
@@ -15,7 +16,7 @@ namespace Geometry
         private Vector3 _center;
         private float _radius;
         
-        public override Shape Shape => Shape.Circle;
+        public override TypeOfShape Shape => TypeOfShape.Circle;
         public override float Circumference => (float)(2 *  _radius * Math.PI);
         public override Vector3 Center => _center;
         public override float Area => (float)((_radius * _radius) * Math.PI);

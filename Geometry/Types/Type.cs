@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace Geometry.Types
 {
-    public class Type
+    public enum TypeOfShape
     {
-        public enum Shape
-        {
-            Circle,
-            Square,
-            Cuboid,
-            Rectangle,
-            Triangle,
-            Sphere,
-            Cube,
-        }
+        Circle,
+        Square,
+        Cuboid,
+        Rectangle,
+        Triangle,
+        Sphere,
+        Cube,
     }
 }

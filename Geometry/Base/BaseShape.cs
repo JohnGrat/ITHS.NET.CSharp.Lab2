@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Reflection;
-using static Geometry.Types.Type;
+using Geometry.Types;
 
 namespace Geometry.Shapes
 {
@@ -13,7 +13,7 @@ namespace Geometry.Shapes
     {
        
 
-        public abstract Shape Shape { get; }
+        public abstract TypeOfShape Shape { get; }
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
 

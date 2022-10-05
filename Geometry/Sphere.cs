@@ -1,11 +1,12 @@
 ﻿using Geometry.Shapes;
+using Geometry.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using static Geometry.Types.Type;
+
 
 namespace Geometry
 {
@@ -14,7 +15,7 @@ namespace Geometry
         private Vector3 _center;
         private float _radius;
 
-        public override Shape Shape => Shape.Sphere;
+        public override TypeOfShape Shape => TypeOfShape.Sphere;
 
         public override Vector3 Center => _center;
         public override float Area => MathF.PI * (MathF.Pow(_radius, 2));
