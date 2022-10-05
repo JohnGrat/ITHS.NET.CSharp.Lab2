@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometry.Types
 {
-    public enum TypeOfShape
+    public enum ShapeType
     {
         Circle,
         Square,

@@ -13,7 +13,7 @@ namespace Geometry.Shapes
     {
        
 
-        public abstract TypeOfShape Shape { get; }
+        public abstract ShapeType Shape { get; }
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
 

@@ -10,7 +10,7 @@ shapes = shapes.Select(x => x = BaseShape.GenerateShape()).ToArray();
 Shape3D[] shape3D = shapes.OfType<Shape3D>().ToArray();
 var maxShape3D = shape3D.MaxBy(x => x.Volume);
 
-float triangleCrc = shapes.Where(x => x.GetType() == typeof(Triangle)).Cast<Triangle>().Select(x => x.Circumference).ToArray().Sum();
+var triangleCrc = shapes.OfType<Triangle>().Sum(x => x.Circumference);
 float avgArea = shapes.Select(x => x.Area).Average();
 var avgShape = shapes.GroupBy(x => x.Shape).OrderByDescending(x => x.Count()).First();
 

@@ -17,9 +17,9 @@ namespace Geometry
 
         private Vector3 _center;
         private Vector3 _size;
-        private TypeOfShape _shape;
+        private ShapeType _shape;
 
-        public override TypeOfShape Shape => _shape;
+        public override ShapeType Shape => _shape;
         public override Vector3 Center => _center;
         public override float Area => 2 * (_size.X * _size.Y + _size.Y * _size.Z + _size.Z * _size.X);
         public override float Volume => _size.Y * _size.X * _size.Z;
@@ -32,14 +32,14 @@ namespace Geometry
         {
             _center = center;
             _size = size;
-            _shape = TypeOfShape.Cuboid;
+            _shape = IsCube() ? ShapeType.Cube : ShapeType.Cuboid;
         }
 
         public Cuboid(Vector3 center, float width)
         {
             _center = center;
             _center = new Vector3(width, width, width);
-            _shape = TypeOfShape.Cube;
+            _shape = ShapeType.Cube;
         }       
 
     }

@@ -17,9 +17,9 @@ namespace Geometry
 
         private Vector3 _center;
         private Vector2 _size;
-        private TypeOfShape _shape;
+        private ShapeType _shape;
 
-        public override TypeOfShape Shape => _shape;
+        public override ShapeType Shape => _shape;
 
         public override float Circumference => 2 * (_size.X + _size.Y);
 
@@ -38,14 +38,14 @@ namespace Geometry
         {
             _center = new Vector3(center, 0);
             _size = size;
-            _shape = TypeOfShape.Rectangle;
+            _shape = IsSquare() ? ShapeType.Rectangle : ShapeType.Square;
         }
 
         public Rectangle(Vector2 center, float width)
         {
             _center = new Vector3(center, 0);
             _size = new Vector2(width, width);
-            _shape = TypeOfShape.Square;
+            _shape = ShapeType.Square;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Geometry
         private Vector3 _center;
         private float _radius;
 
-        public override TypeOfShape Shape => TypeOfShape.Sphere;
+        public override ShapeType Shape => ShapeType.Sphere;
 
         public override Vector3 Center => _center;
         public override float Area => MathF.PI * (MathF.Pow(_radius, 2));

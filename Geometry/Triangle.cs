@@ -19,7 +19,7 @@ namespace Geometry
         private Vector2 _p2;
         private Vector2 _p3;
 
-        public override TypeOfShape Shape => TypeOfShape.Triangle;
+        public override ShapeType Shape => ShapeType.Triangle;
 
         public override float Circumference => Vector2.Distance(_p1, _p2) + Vector2.Distance(_p2, _p3) + Vector2.Distance(_p3, _p1);
   
