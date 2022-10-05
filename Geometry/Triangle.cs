@@ -1,10 +1,12 @@
 ﻿using Geometry.Shapes;
+using Geometry.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static Geometry.Types.Type;
 
 namespace Geometry
 {
@@ -16,6 +18,8 @@ namespace Geometry
         private Vector2 _p1;
         private Vector2 _p2;
         private Vector2 _p3;
+
+        public override Shape Shape => Shape.Triangle;
 
         public override float Circumference => Vector2.Distance(_p1, _p2) + Vector2.Distance(_p2, _p3) + Vector2.Distance(_p3, _p1);
   

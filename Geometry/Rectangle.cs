@@ -7,6 +7,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Geometry.Shapes;
+using static Geometry.Types.Type;
 
 namespace Geometry
 {
@@ -15,6 +16,9 @@ namespace Geometry
 
         private Vector3 _center;
         private Vector2 _size;
+        private Shape _shape;
+
+        public override Shape Shape => _shape;
 
         public override float Circumference => 2 * (_size.X + _size.Y);
 
@@ -33,12 +37,14 @@ namespace Geometry
         {
             _center = new Vector3(center, 0);
             _size = size;
+            _shape = Shape.Rectangle;
         }
 
         public Rectangle(Vector2 center, float width)
         {
             _center = new Vector3(center, 0);
             _size = new Vector2(width, width);
+            _shape = Shape.Square;
         }
     }
 }

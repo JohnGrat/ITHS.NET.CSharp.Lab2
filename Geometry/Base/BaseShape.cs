@@ -5,13 +5,19 @@ using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Reflection;
+using static Geometry.Types.Type;
 
 namespace Geometry.Shapes
 {
     public abstract class BaseShape
     {
+       
+
+        public abstract Shape Shape { get; }
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
+
+        private static int RandomRange = 20;
 
         public static BaseShape GenerateShape() => GenerateShape(GenerateRandomVector3());
 
@@ -24,12 +30,12 @@ namespace Geometry.Shapes
 
             return i switch
             {
-                0 => new Circle(center2D, random.Next(1, 20)),
-                1 => new Cuboid(center3D, random.Next(1, 20)), //Cube
+                0 => new Circle(center2D, random.Next(RandomRange)),
+                1 => new Cuboid(center3D, random.Next(RandomRange)), //Cube
                 2 => new Cuboid(center3D, GenerateRandomVector3()),
                 3 => new Rectangle(center2D, GenerateRandomVector2()),
-                4 => new Rectangle(center2D, random.Next(1, 20)), //Square
-                5 => new Sphere(center3D, random.Next(1, 20)),
+                4 => new Rectangle(center2D, random.Next(RandomRange)), //Square
+                5 => new Sphere(center3D, random.Next(RandomRange)),
                 6 => new Triangle(center3D, GenerateRandomVector2(), GenerateRandomVector2()),
             };
         }
@@ -37,13 +43,13 @@ namespace Geometry.Shapes
         private static Vector2 GenerateRandomVector2()
         {
             Random random = new Random();
-            return new Vector2(random.Next(1, 20), random.Next(1, 20));
+            return new Vector2(random.Next(RandomRange), random.Next(RandomRange));
         }
 
         private static Vector3 GenerateRandomVector3()
         {
             Random random = new Random();
-            return new Vector3(random.Next(1, 20), random.Next(1, 20), random.Next(1, 20));
+            return new Vector3(random.Next(RandomRange), random.Next(RandomRange), random.Next(RandomRange));
         }
 
     }

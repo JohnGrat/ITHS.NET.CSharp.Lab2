@@ -1,4 +1,5 @@
 ﻿using Geometry.Shapes;
+using Geometry.Types;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.Net;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static Geometry.Types.Type;
 
 namespace Geometry
 {
@@ -15,7 +17,9 @@ namespace Geometry
 
         private Vector3 _center;
         private Vector3 _size;
+        private Shape _shape;
 
+        public override Shape Shape => _shape;
         public override Vector3 Center => _center;
         public override float Area => 2 * (_size.X * _size.Y + _size.Y * _size.Z + _size.Z * _size.X);
         public override float Volume => _size.Y * _size.X * _size.Z;
@@ -28,12 +32,14 @@ namespace Geometry
         {
             _center = center;
             _size = size;
+            _shape = Shape.Cuboid;
         }
 
         public Cuboid(Vector3 center, float width)
         {
             _center = center;
             _center = new Vector3(width, width, width);
+            _shape = Shape.Cube;
         }       
 
     }

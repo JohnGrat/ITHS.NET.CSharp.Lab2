@@ -6,6 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Geometry.Shapes;
+using static Geometry.Types.Type;
 
 namespace Geometry
 {
@@ -13,13 +14,14 @@ namespace Geometry
     {
         private Vector3 _center;
         private float _radius;
-
+        
+        public override Shape Shape => Shape.Circle;
         public override float Circumference => (float)(2 *  _radius * Math.PI);
         public override Vector3 Center => _center;
         public override float Area => (float)((_radius * _radius) * Math.PI);
         public override string ToString() => $"Circle @({_center.X:f2}, {_center.Y:f2}): r = {_radius:f2}";
 
-        public Circle(Vector2 center, float radius)
+        public Circle(Vector2 center, float radius) 
         {
             _center = new(center, 0);
             _radius = radius;
