@@ -1,30 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Numerics;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 using Geometry.Shapes;
 using Geometry.Types;
-
 
 namespace Geometry
 {
     public class Rectangle : Shape2D
     {
-
         private Vector3 _center;
         private Vector2 _size;
         private ShapeType _shape;
 
         public override ShapeType Shape => _shape;
-
         public override float Circumference => 2 * (_size.X + _size.Y);
-
         public override float Area => _size.Y * _size.X;
-
         public override Vector3 Center => _center;
 
         public override string ToString()

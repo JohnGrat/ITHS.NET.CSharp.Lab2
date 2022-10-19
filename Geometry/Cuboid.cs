@@ -1,20 +1,11 @@
 ﻿using Geometry.Shapes;
 using Geometry.Types;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace Geometry
 {
     public class Cuboid : Shape3D
     {
-
         private Vector3 _center;
         private Vector3 _size;
         private ShapeType _shape;
